@@ -6,6 +6,8 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { useTeams } from '@/hooks/useTeams'
 import { useDashboardStore } from '@/store/useDashboardStore'
 import { Loading } from '@/components/ui/loading'
+import { Skeleton } from './ui/skeleton'
+import { Card } from './ui/card'
 
 export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null)
@@ -79,7 +81,15 @@ export default function Map() {
   }, [selectedTeams])
 
   if (loading) {
-    return <Loading />
+    return <Card className='w-full h-[300px] md:h-[600px] p-4 ' >
+        <Skeleton className='w-full h-full' />
+        
+
+
+
+
+
+    </Card>
   }
 
   if (error) {

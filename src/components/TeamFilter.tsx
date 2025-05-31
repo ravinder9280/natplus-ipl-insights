@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card'
 import { useTeams } from '@/hooks/useTeams'
 import { useDashboardStore } from '@/store/useDashboardStore'
 import { Loading } from '@/components/ui/loading'
+import { Skeleton } from './ui/skeleton'
 
 export default function TeamFilter() {
   const { teams, loading, error } = useTeams()
@@ -11,8 +12,11 @@ export default function TeamFilter() {
 
   if (loading) {
     return (
-      <Card className="p-4">
-        <Loading />
+      <Card className=" w-full max-h-[442px] space-y-6 p-4">
+        <Skeleton className='w-full h-4' />
+        <Skeleton className='w-full h-4' />
+        <Skeleton className='w-full h-4' />
+        <Skeleton className='w-full h-4' />
       </Card>
     )
   }
